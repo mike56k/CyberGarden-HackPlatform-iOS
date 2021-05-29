@@ -86,27 +86,36 @@ public func getAllHacks(completion: @escaping ((Result<HackathonDetailsResponce,
 //    }
 //
 //    //MARK: - Profile
-//    public func getCurrentUserProfile(completion: @escaping (Result<UserProfile,Error>) -> Void){
-//        createRequest(with: URL(string: Constants.baseAPIURL + "/me"),
-//                      type: .GET
-//        ) { baseRequest in
-//            let task = URLSession.shared.dataTask(with: baseRequest) { data, _, error in
-//                guard let data = data, error == nil else{
-//                    completion(.failure(APIError.failedToGetData))
-//                    return
-//                }
-//                do{
-//                    let result = try JSONDecoder().decode(UserProfile.self, from: data)
-//                    completion(.success(result))
-//                }
-//                catch{
-//                    print(error.localizedDescription)
-//                    completion(.failure(error))
-//                }
-//            }
-//            task.resume()
-//        }
-//    }
+    public func getCurrentUserProfile(completion: @escaping (Result<UserProfile,Error>) -> Void){
+        createRequest(with: URL(string: Constants.baseAPIURL + "/users/profile"),
+                      type: .GET
+        ) { baseRequest in
+            
+            var request = baseRequest
+            
+            let accessToken = AuthManager.shared.accessToken!
+            request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+                request.setValue("application/json",
+                                            forHTTPHeaderField: "Accept")
+            
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data, error == nil else{
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                do{
+                    print("here")
+                    let result = try JSONDecoder().decode(UserProfile.self, from: data)
+                    completion(.success(result))
+                }
+                catch{
+                    print(error.localizedDescription)
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
 //    /// Function to return all the new releases
 //    public func getAllNewReleases(completion: @escaping ((Result<NewReleaseResponse,Error>)->Void)){
 //        // Create Request

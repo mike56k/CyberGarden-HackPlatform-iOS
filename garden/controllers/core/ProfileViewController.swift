@@ -76,8 +76,7 @@ class ProfileViewController: UIViewController {
         configureConstraints()
     }
     override func viewWillAppear(_ animated: Bool) {
-        let defaults = UserDefaults.standard
-        if let token = defaults.string(forKey: "access_token"){
+        if let token = AuthManager.shared.accessToken{
             let vc = AuthorizedProfileViewController()
             navigationController?.pushViewController(vc, animated: true)
             print(token)

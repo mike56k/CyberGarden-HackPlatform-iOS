@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct UserProfile: Codable {
+
+    let email: String
+    let fio: String?
+    
+    
+}

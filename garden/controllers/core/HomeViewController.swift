@@ -254,9 +254,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         let section = indexPath.section
         let title = sections[section].title
-        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        print(title)
-        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        
 
         header.configure(with: title)
         return header

@@ -6,8 +6,7 @@
 //
 
 import Foundation
-/// NewReleaseResponseModel: Codable
-/// Contains a
+
 //struct HackathonDetailsResponce: Codable {
 //    let hacks: HackResponse
 //}

@@ -25,7 +25,7 @@
 		740D7220266263A4003CE90D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D721A266263A4003CE90D /* SettingsViewController.swift */; };
 		740D7227266263E1003CE90D /* SettingsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D7222266263E1003CE90D /* SettingsModels.swift */; };
 		740D7228266263E1003CE90D /* AuthResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D7223266263E1003CE90D /* AuthResponce.swift */; };
-		740D7229266263E1003CE90D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D7224266263E1003CE90D /* UserData.swift */; };
+		740D7229266263E1003CE90D /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D7224266263E1003CE90D /* UserProfile.swift */; };
 		740D722A266263E1003CE90D /* UserToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D7225266263E1003CE90D /* UserToken.swift */; };
 		740D722B266263E1003CE90D /* HackathonDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D7226266263E1003CE90D /* HackathonDetailsResponse.swift */; };
 		740D723026626407003CE90D /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D722E26626407003CE90D /* APICaller.swift */; };
@@ -62,7 +62,7 @@
 		740D721A266263A4003CE90D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		740D7222266263E1003CE90D /* SettingsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsModels.swift; sourceTree = "<group>"; };
 		740D7223266263E1003CE90D /* AuthResponce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthResponce.swift; sourceTree = "<group>"; };
-		740D7224266263E1003CE90D /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		740D7224266263E1003CE90D /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		740D7225266263E1003CE90D /* UserToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserToken.swift; sourceTree = "<group>"; };
 		740D7226266263E1003CE90D /* HackathonDetailsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HackathonDetailsResponse.swift; sourceTree = "<group>"; };
 		740D722E26626407003CE90D /* APICaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 				740D7223266263E1003CE90D /* AuthResponce.swift */,
 				740D7226266263E1003CE90D /* HackathonDetailsResponse.swift */,
 				740D7222266263E1003CE90D /* SettingsModels.swift */,
-				740D7224266263E1003CE90D /* UserData.swift */,
+				740D7224266263E1003CE90D /* UserProfile.swift */,
 				740D7225266263E1003CE90D /* UserToken.swift */,
 			);
 			path = models;
@@ -354,7 +354,7 @@
 				740D723626626427003CE90D /* LatestHackathonsCollectionViewCell.swift in Sources */,
 				740D722A266263E1003CE90D /* UserToken.swift in Sources */,
 				740D72132662638F003CE90D /* ProfileViewController.swift in Sources */,
-				740D7229266263E1003CE90D /* UserData.swift in Sources */,
+				740D7229266263E1003CE90D /* UserProfile.swift in Sources */,
 				740D723B26626439003CE90D /* UIView+Extention.swift in Sources */,
 				740D721B266263A4003CE90D /* SearchResultsViewController.swift in Sources */,
 				740D721C266263A4003CE90D /* AuthViewController.swift in Sources */,

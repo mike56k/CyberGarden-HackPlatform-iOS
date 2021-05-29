@@ -18,8 +18,8 @@ class AuthViewController: UIViewController {
         btn.setTitleColor(.black, for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.layer.cornerRadius = 30
+        btn.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
 
-        //btn.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
 
         return btn
     }()
@@ -136,6 +136,50 @@ class AuthViewController: UIViewController {
     }
     func configureSecondName() {
         NSLayoutConstraint.activate([secondName.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10),secondName.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9), secondName.heightAnchor.constraint(equalToConstant: 60), secondName.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
+    }
+    
+    
+    @objc func didTapSignUp() {
+        print("ssiiisisiisisi")
+        //let error = validateFields()
+//        if error != nil {
+//            let alert = UIAlertController(title: "Ошибка",
+//                                          message: error,
+//                                          preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "Еще раз", style: .cancel, handler: nil))
+//            present(alert, animated: true)
+//            return
+//        }
+        //errorLabel.alpha = 0
+
+
+//        AuthManager.shared.logIn(login: loginField.text!, password: passwordField.text!) { [weak self]success in
+//            DispatchQueue.main.async {
+//                self?.navigationController?.popToRootViewController(animated: true)
+//                self?.completionHandler?(success)
+//            }
+//        }
+//        completionHandler = {[weak self]success in
+//            DispatchQueue.main.async {
+//                self?.handleSignIn(success: success)
+//            }
+//        }
+        
+    }
+    
+    private func handleSignUp(success: Bool){
+    //Log user in or log error if didn't log in
+        guard success else {
+            let alert = UIAlertController(title: "Ошибка",
+                                          message: "Неверный логин или пароль",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Еще раз", style: .cancel, handler: nil))
+            present(alert, animated: true)
+            return
+        }
+        let mainAppTabBarVC = TabBarViewController()
+        mainAppTabBarVC.modalPresentationStyle = .fullScreen
+        present(mainAppTabBarVC,animated: true)
     }
 
 
