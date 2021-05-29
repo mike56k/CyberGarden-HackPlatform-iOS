@@ -17,7 +17,7 @@ enum BrowseSectionType {
             return "Другие хакатоны"
         }}
 }
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UISearchBarDelegate {
     let lightGreen = UIColor(rgb: 0x43dfa8)
     private var myHacks: [Hack] = []
     private var otherHacks: [Hack] = []
@@ -31,6 +31,18 @@ class HomeViewController: UIViewController {
     )
     return cv
     }()
+    
+    private lazy var searchBar : UISearchBar = {
+        let s = UISearchBar()
+            s.placeholder = "Введите название хакатона"
+            s.delegate = self
+            //s.tintColor = .white
+            //s.barTintColor = // color you like
+            s.barStyle = .default
+            s.sizeToFit()
+        return s
+    }()
+    
     private let spinner: UIActivityIndicatorView = {
       let spin = UIActivityIndicatorView()
         spin.tintColor = .label
@@ -96,40 +108,40 @@ class HomeViewController: UIViewController {
       //  group.enter()
 
         
-        var myHacksResponce: HackathonDetailsResponce?
-        var otherHacksResponce: HackathonDetailsResponce?
+        var myHacksResponce: [Hack]?
+        var otherHacksResponce: [Hack]?
 
 
-//        APICaller.shared.getAllHacks { result in
-//            defer{
-//                group.leave()
-//            }
-//            switch result{
-//            case .success(let model):
-//                print("This is model")
-//                print(model)
-//                myHacksResponce = model
-//                otherHacksResponce = model
-//                break
-//            case .failure(let error):
-//                print("This is error")
-//
-//                print(error.localizedDescription)
-//                break
-//            }
-//        }
+        APICaller.shared.getAllHacks { result in
+            defer{
+                group.leave()
+            }
+            switch result{
+            case .success(let model):
+                print("This is model")
+                print(model)
+                myHacksResponce = model
+                otherHacksResponce = model
+                break
+            case .failure(let error):
+                print("This is error")
+
+                print(error.localizedDescription)
+                break
+            }
+        }
         
-        myHacksResponce = HackathonDetailsResponce(hacks: [Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: [])])
-        otherHacksResponce = HackathonDetailsResponce(hacks: [Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: [])])
+//        myHacksResponce = HackathonDetailsResponce(hacks: [Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: [])])
+//        otherHacksResponce = HackathonDetailsResponce(hacks: [Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: [])])
         //print(myHacksResponce)
-        //group.notify(queue: .main) {
+        group.notify(queue: .main) {
             // Unwrap the optional responses
-            guard let myHacksModels = myHacksResponce?.hacks,
-                  let otherHacksModels = otherHacksResponce?.hacks else {
+            guard let myHacksModels = myHacksResponce,
+                  let otherHacksModels = otherHacksResponce else {
                 return
             }
             self.configureModels(myHacks: myHacksModels, otherHacks: otherHacksModels)
-         //}
+         }
         // Section2: Featured Playlists
         
 //        APICaller.shared.getFeaturedPlaylists { result in
@@ -192,15 +204,15 @@ class HomeViewController: UIViewController {
         //print(otherHacks)
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         //let date = dateFormatter.date(from:isoDate)!
         //Configure models with compactMap to return viewModels
         sections.append(.latestHackathons(viewModels: myHacks.compactMap({
             return LatestHackathonsCollectionViewModel(
-                title: $0.name, hackathonImage: URL(string: $0.image), date: dateFormatter.date(from: $0.start_date)!
+                title: $0.name!, hackathonImage: URL(string: $0.image!), date: dateFormatter.date(from: $0.start_date!)!
                 )
         })))
-        sections.append(.otherHackathons(viewModels: otherHacks.compactMap({return LatestHackathonsCollectionViewModel(title: $0.name, hackathonImage: URL(string: $0.image), date: dateFormatter.date(from: $0.start_date)!)})))
+        sections.append(.otherHackathons(viewModels: otherHacks.compactMap({return LatestHackathonsCollectionViewModel(title: $0.name!, hackathonImage: URL(string: $0.image!), date: dateFormatter.date(from: $0.start_date!)!)})))
 
 
         collectionView.reloadData()

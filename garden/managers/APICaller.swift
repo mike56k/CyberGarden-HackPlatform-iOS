@@ -19,7 +19,7 @@ final class APICaller {
     enum APIError: Error {
         case failedToGetData
     }
-public func getAllHacks(completion: @escaping ((Result<HackathonDetailsResponce,Error>)->Void)){
+public func getAllHacks(completion: @escaping ((Result<[Hack],Error>)->Void)){
         createRequest(with: URL(string: Constants.baseAPIURL + "/hacks/all"),
                       type: .GET) { request in
             let task = URLSession.shared.dataTask(with: request) { (data, _, error) in
@@ -30,7 +30,9 @@ public func getAllHacks(completion: @escaping ((Result<HackathonDetailsResponce,
                 //Do Catch block to get JSON data
                
                 do{
-                    let result = try JSONDecoder().decode(HackathonDetailsResponce.self, from: data)
+                    print("fsdfksdfsdfsdfsdfijsdfi")
+                    print(data)
+                    let result = try JSONDecoder().decode([Hack].self, from: data)
                     completion(.success(result))
                 }
                 catch{

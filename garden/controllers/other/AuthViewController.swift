@@ -137,33 +137,49 @@ class AuthViewController: UIViewController {
     func configureSecondName() {
         NSLayoutConstraint.activate([secondName.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10),secondName.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9), secondName.heightAnchor.constraint(equalToConstant: 60), secondName.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
     }
-    
-    
+    func validateFields() -> String? {
+        
+        if loginField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            return "Заполните все поля"
+        }
+        let cleanedEmail = loginField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let cleanedPassword = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        if Utilities.isEmailValid(cleanedEmail) == false {
+            return "Некорректная почта"
+        }
+        if Utilities.isPasswordValid(cleanedPassword) == false {
+            return "Пароль недостаточно безопасен"
+        }
+        
+        return nil
+    }
+    public var completionHandler: ((Bool)->Void)?
+
     @objc func didTapSignUp() {
         print("ssiiisisiisisi")
-        //let error = validateFields()
-//        if error != nil {
-//            let alert = UIAlertController(title: "Ошибка",
-//                                          message: error,
-//                                          preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Еще раз", style: .cancel, handler: nil))
-//            present(alert, animated: true)
-//            return
-//        }
+        let error = validateFields()
+        if error != nil {
+            let alert = UIAlertController(title: "Ошибка",
+                                          message: error,
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Еще раз", style: .cancel, handler: nil))
+            present(alert, animated: true)
+            return
+        }
         //errorLabel.alpha = 0
 
 
-//        AuthManager.shared.logIn(login: loginField.text!, password: passwordField.text!) { [weak self]success in
-//            DispatchQueue.main.async {
-//                self?.navigationController?.popToRootViewController(animated: true)
-//                self?.completionHandler?(success)
-//            }
-//        }
-//        completionHandler = {[weak self]success in
-//            DispatchQueue.main.async {
-//                self?.handleSignIn(success: success)
-//            }
-//        }
+        AuthManager.shared.signUp(login: loginField.text!, password: passwordField.text!) { [weak self]success in
+            DispatchQueue.main.async {
+                self?.navigationController?.popToRootViewController(animated: true)
+                self?.completionHandler?(success)
+            }
+        }
+        completionHandler = {[weak self]success in
+            DispatchQueue.main.async {
+                self?.handleSignUp(success: success)
+            }
+        }
         
     }
     
