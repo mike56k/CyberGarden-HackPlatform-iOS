@@ -32,7 +32,9 @@ final class AuthManager{
         completion: @escaping ((Bool) -> (Void))
     ){
         //Get Token
-        guard let url = URL(string: Constants.baseAPIURL) else {
+        print(login)
+        print(password)
+        guard let url = URL(string: Constants.baseAPIURL+"/users/token") else {
             return
         }
 //        var components = URLComponents()
@@ -96,6 +98,7 @@ final class AuthManager{
                 return
             }
             do{
+                
                 let result = try JSONDecoder().decode(AuthResponse.self, from: data)
                 print(result)
                 self?.cacheToken(result:result)

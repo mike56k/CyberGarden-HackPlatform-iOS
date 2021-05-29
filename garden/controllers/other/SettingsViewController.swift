@@ -22,7 +22,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         configureModels()
-        title = "Settings"
+        title = "Настройки"
+        navigationItem.largeTitleDisplayMode = .always
         view.backgroundColor = .systemBackground
         view.addSubview(tableView)
         tableView.dataSource = self
@@ -31,11 +32,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     //Func: configureModels
     private func configureModels() {
         //Profile Section
-        sections.append(Section(title: "Профиль", options: [Option(title: "Открыть профиль", handler: {[weak self] in
-            DispatchQueue.main.async {
-                self?.viewProfile()
-            }
-        })]))
+
         // Account Section
         sections.append(Section(title: "Аккаунт", options: [Option(title: "Выйти из аккаунта", handler: {[weak self] in
             DispatchQueue.main.async {
@@ -43,13 +40,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             }
         })]))
     }
-    private func viewProfile() {
-        let vc = ProfileViewController()
-        vc.title = "Profile"
-        vc.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.pushViewController(vc, animated: true)
-        
-    }
+    
     private func signOutTapped(){
         
     }

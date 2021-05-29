@@ -11,7 +11,6 @@
 		740D71E7266261D6003CE90D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 740D71E6266261D6003CE90D /* Assets.xcassets */; };
 		740D71EA266261D6003CE90D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 740D71E8266261D6003CE90D /* LaunchScreen.storyboard */; };
 		740D71FF26626324003CE90D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D71FE26626324003CE90D /* Utilities.swift */; };
-		740D720326626333003CE90D /* OtherHackathonsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D720126626333003CE90D /* OtherHackathonsCollectionViewCell.swift */; };
 		740D720426626333003CE90D /* LatestHackathonsCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D720226626333003CE90D /* LatestHackathonsCollectionViewModel.swift */; };
 		740D72072662634A003CE90D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D72062662634A003CE90D /* SceneDelegate.swift */; };
 		740D72102662638F003CE90D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D720C2662638F003CE90D /* HomeViewController.swift */; };
@@ -36,6 +35,8 @@
 		740D723B26626439003CE90D /* UIView+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D723826626439003CE90D /* UIView+Extention.swift */; };
 		740D723C26626439003CE90D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D723926626439003CE90D /* UIColor+Extension.swift */; };
 		740D723D26626439003CE90D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D723A26626439003CE90D /* Constants.swift */; };
+		740D725C26626A5B003CE90D /* OtherHackathonsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D725B26626A5B003CE90D /* OtherHackathonsCollectionViewCell.swift */; };
+		740D725F26627838003CE90D /* AuthorizedProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D725E26627838003CE90D /* AuthorizedProfileViewController.swift */; };
 		880CF55ACF2F2A4080FE4FA3 /* Pods_garden.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1026D9F79EE9E3AA5B776EB0 /* Pods_garden.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +48,6 @@
 		740D71E9266261D6003CE90D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		740D71EB266261D6003CE90D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		740D71FE26626324003CE90D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		740D720126626333003CE90D /* OtherHackathonsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherHackathonsCollectionViewCell.swift; sourceTree = "<group>"; };
 		740D720226626333003CE90D /* LatestHackathonsCollectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestHackathonsCollectionViewModel.swift; sourceTree = "<group>"; };
 		740D72062662634A003CE90D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		740D720C2662638F003CE90D /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +72,8 @@
 		740D723826626439003CE90D /* UIView+Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extention.swift"; sourceTree = "<group>"; };
 		740D723926626439003CE90D /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		740D723A26626439003CE90D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		740D725B26626A5B003CE90D /* OtherHackathonsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherHackathonsCollectionViewCell.swift; sourceTree = "<group>"; };
+		740D725E26627838003CE90D /* AuthorizedProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedProfileViewController.swift; sourceTree = "<group>"; };
 		BCF179C2B747A2B96FD02CEB /* Pods-garden.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-garden.debug.xcconfig"; path = "Target Support Files/Pods-garden/Pods-garden.debug.xcconfig"; sourceTree = "<group>"; };
 		DE198FB6F1908BA685CAD512 /* Pods-garden.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-garden.release.xcconfig"; path = "Target Support Files/Pods-garden/Pods-garden.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,6 +167,7 @@
 				740D723426626427003CE90D /* LatestHackathonsCollectionViewCell.swift */,
 				740D723326626427003CE90D /* TitleHeaderCollectionReusableView.swift */,
 				740D71E8266261D6003CE90D /* LaunchScreen.storyboard */,
+				740D725B26626A5B003CE90D /* OtherHackathonsCollectionViewCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -186,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				740D720226626333003CE90D /* LatestHackathonsCollectionViewModel.swift */,
-				740D720126626333003CE90D /* OtherHackathonsCollectionViewCell.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -228,6 +230,7 @@
 				740D7215266263A4003CE90D /* SearchResultsViewController.swift */,
 				740D721A266263A4003CE90D /* SettingsViewController.swift */,
 				740D7219266263A4003CE90D /* WelcomeViewController.swift */,
+				740D725E26627838003CE90D /* AuthorizedProfileViewController.swift */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -364,12 +367,13 @@
 				740D71DE266261D4003CE90D /* AppDelegate.swift in Sources */,
 				740D721D266263A4003CE90D /* PlayerViewController.swift in Sources */,
 				740D72122662638F003CE90D /* TabBarViewController.swift in Sources */,
+				740D725F26627838003CE90D /* AuthorizedProfileViewController.swift in Sources */,
 				740D71FF26626324003CE90D /* Utilities.swift in Sources */,
 				740D721E266263A4003CE90D /* HackathonInfoViewController.swift in Sources */,
-				740D720326626333003CE90D /* OtherHackathonsCollectionViewCell.swift in Sources */,
 				740D72102662638F003CE90D /* HomeViewController.swift in Sources */,
 				740D723026626407003CE90D /* APICaller.swift in Sources */,
 				740D7227266263E1003CE90D /* SettingsModels.swift in Sources */,
+				740D725C26626A5B003CE90D /* OtherHackathonsCollectionViewCell.swift in Sources */,
 				740D720426626333003CE90D /* LatestHackathonsCollectionViewModel.swift in Sources */,
 				740D723526626427003CE90D /* TitleHeaderCollectionReusableView.swift in Sources */,
 			);

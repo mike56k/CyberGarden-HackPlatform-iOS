@@ -19,7 +19,7 @@ class TabBarViewController: UITabBarController {
         vc1.title = "Афиша"
         
         vc2.title = "Поиск"
-        vc3.title = "Профиль"
+        vc3.title = "Авторизация"
         
         vc1.navigationItem.largeTitleDisplayMode = .always
         vc2.navigationItem.largeTitleDisplayMode = .always

@@ -27,9 +27,7 @@ class AuthViewController: UIViewController {
         var field = UITextField()
         field.translatesAutoresizingMaskIntoConstraints = false
         field.borderStyle = .roundedRect
-        field.layer.borderColor = white.cgColor
         field.layer.borderWidth = 1.0
-        field.layer.cornerRadius = 10.0
         field.placeholder = "Имя"
        return field
     }()
@@ -37,9 +35,7 @@ class AuthViewController: UIViewController {
         var field = UITextField()
         field.translatesAutoresizingMaskIntoConstraints = false
         field.borderStyle = .roundedRect
-        field.layer.borderColor = white.cgColor
         field.layer.borderWidth = 1.0
-        field.layer.cornerRadius = 10.0
         field.placeholder = "Фамилия"
        return field
     }()
@@ -47,9 +43,7 @@ class AuthViewController: UIViewController {
         var field = UITextField()
         field.translatesAutoresizingMaskIntoConstraints = false
         field.borderStyle = .roundedRect
-        field.layer.borderColor = white.cgColor
         field.layer.borderWidth = 1.0
-        field.layer.cornerRadius = 10.0
         field.placeholder = "Отчество"
        return field
     }()
@@ -66,9 +60,7 @@ class AuthViewController: UIViewController {
         var field = UITextField()
         field.translatesAutoresizingMaskIntoConstraints = false
         field.borderStyle = .roundedRect
-        field.layer.borderColor = white.cgColor
         field.layer.borderWidth = 1.0
-        field.layer.cornerRadius = 10.0
         field.placeholder = "Почта"
        return field
     }()
@@ -76,10 +68,8 @@ class AuthViewController: UIViewController {
         var field = UITextField()
         field.translatesAutoresizingMaskIntoConstraints = false
         field.borderStyle = .roundedRect
-        field.layer.borderColor = white.cgColor
         field.layer.borderWidth = 1.0
     
-        field.layer.cornerRadius = 10.0
         field.placeholder = "Пароль"
        return field
     }()

@@ -75,6 +75,17 @@ class ProfileViewController: UIViewController {
         view.addSubview(errorLabel)
         configureConstraints()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        let defaults = UserDefaults.standard
+        if let token = defaults.string(forKey: "access_token"){
+            let vc = AuthorizedProfileViewController()
+            navigationController?.pushViewController(vc, animated: true)
+            print(token)
+        } else {
+            print("No token yet")
+        }
+    }
+    
     func configureConstraints() {
         configureLoginButton()
         configureRegisterButton()
@@ -112,9 +123,9 @@ class ProfileViewController: UIViewController {
             return "Заполните все поля"
         }
         let cleanedPassword = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        if Utilities.isPasswordValid(cleanedPassword) == false {
-            return "Пароль недостаточно безопасен"
-        }
+//        if Utilities.isPasswordValid(cleanedPassword) == false {
+//            return "Пароль недостаточно безопасен"
+//        }
         return nil
     }
     
@@ -133,11 +144,29 @@ class ProfileViewController: UIViewController {
                 self?.completionHandler?(success)
             }
         }
-
-
-        
+        completionHandler = {[weak self]success in
+            DispatchQueue.main.async {
+                self?.handleSignIn(success: success)
+            }
+        }
         
     }
+    
+    private func handleSignIn(success: Bool){
+    //Log user in or log error if didn't log in
+        guard success else {
+            let alert = UIAlertController(title: "Ошибка",
+                                          message: "Неверный логин или пароль",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Еще раз", style: .cancel, handler: nil))
+            present(alert, animated: true)
+            return
+        }
+        let mainAppTabBarVC = TabBarViewController()
+        mainAppTabBarVC.modalPresentationStyle = .fullScreen
+        present(mainAppTabBarVC,animated: true)
+    }
+    
     func showError(_ errorText: String) {
         errorLabel.text = errorText
         errorLabel.alpha = 1

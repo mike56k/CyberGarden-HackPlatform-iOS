@@ -80,6 +80,8 @@ class HomeViewController: UIViewController {
         collectionView.register(TitleHeaderCollectionReusableView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader ,
                                 withReuseIdentifier: TitleHeaderCollectionReusableView.identifier)
+        collectionView.register(OtherHackathonsCollectionViewCell.self,
+                                forCellWithReuseIdentifier: OtherHackathonsCollectionViewCell.identifier)
     }
     
 //    func fetchData() {
@@ -119,7 +121,7 @@ class HomeViewController: UIViewController {
         
         myHacksResponce = HackathonDetailsResponce(hacks: [Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: [])])
         otherHacksResponce = HackathonDetailsResponce(hacks: [Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: [])])
-        print(myHacksResponce)
+        //print(myHacksResponce)
         //group.notify(queue: .main) {
             // Unwrap the optional responses
             guard let myHacksModels = myHacksResponce?.hacks,
@@ -187,7 +189,7 @@ class HomeViewController: UIViewController {
     ){
         self.myHacks = myHacks
         self.otherHacks = otherHacks
-        print(otherHacks)
+        //print(otherHacks)
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -279,8 +281,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         case .otherHackathons(let viewModels):
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: LatestHackathonsCollectionViewCell.identifier,
-                    for: indexPath) as? LatestHackathonsCollectionViewCell else {
+                withReuseIdentifier: OtherHackathonsCollectionViewCell.identifier,
+                    for: indexPath) as? OtherHackathonsCollectionViewCell else {
                return UICollectionViewCell()
             }
             let viewModel = viewModels[indexPath.row]
@@ -302,7 +304,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 alignment: .top)
         ]
         switch section {
-        case 0:
+        case 2:
             let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0)))
             item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
             
@@ -315,7 +317,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             section.boundarySupplementaryItems = supplementaryViews
 
             return section
-        case 1:
+        case 0:
             let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0)))
             item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
             
@@ -327,6 +329,23 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             section.orthogonalScrollingBehavior = .groupPaging
             section.boundarySupplementaryItems = supplementaryViews
 
+            return section
+        case 1:
+            // Item
+            let item = NSCollectionLayoutItem(
+                layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                   heightDimension: .fractionalWidth(1.0)))
+            // Add padding between items
+            item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
+            let group = NSCollectionLayoutGroup.vertical(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1.0),
+                    heightDimension: .absolute(80)),
+                    subitem: item,
+                    count: 1)
+            // Section
+            let section = NSCollectionLayoutSection(group: group)
+            section.boundarySupplementaryItems = supplementaryViews
             return section
         default:
             let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0)))
