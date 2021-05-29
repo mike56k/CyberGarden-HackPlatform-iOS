@@ -25,6 +25,7 @@ class LatestHackathonsCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 22, weight: .bold)
         label.textColor = .white
+        label.numberOfLines = 3
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -48,14 +49,14 @@ class LatestHackathonsCollectionViewCell: UICollectionViewCell {
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        hackathonTitle.sizeToFit()
+        //hackathonTitle.sizeToFit()
         self.layer.cornerRadius = 20
         self.layer.masksToBounds = true
 
         NSLayoutConstraint.activate([hackathonCover.topAnchor.constraint(equalTo: self.topAnchor), hackathonCover.bottomAnchor.constraint(equalTo: self.bottomAnchor),hackathonCover.rightAnchor.constraint(equalTo: self.rightAnchor),hackathonCover.leftAnchor.constraint(equalTo: self.leftAnchor)])
         
-        NSLayoutConstraint.activate([hackathonDate.topAnchor.constraint(equalTo: self.topAnchor, constant: 20), hackathonDate.bottomAnchor.constraint(equalTo: self.bottomAnchor),hackathonDate.rightAnchor.constraint(equalTo: self.rightAnchor),hackathonDate.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10)])
-        NSLayoutConstraint.activate([hackathonTitle.topAnchor.constraint(equalTo: self.topAnchor, constant: 60), hackathonTitle.bottomAnchor.constraint(equalTo: self.bottomAnchor),hackathonTitle.rightAnchor.constraint(equalTo: self.rightAnchor),hackathonTitle.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10)])
+        NSLayoutConstraint.activate([hackathonDate.topAnchor.constraint(equalTo: self.topAnchor, constant: 50), hackathonDate.bottomAnchor.constraint(equalTo: self.hackathonTitle.topAnchor, constant: -10),hackathonDate.rightAnchor.constraint(equalTo: self.rightAnchor),hackathonDate.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10)])
+        NSLayoutConstraint.activate([hackathonTitle.topAnchor.constraint(equalTo: self.hackathonDate.bottomAnchor, constant: 10),hackathonTitle.rightAnchor.constraint(equalTo: self.rightAnchor),hackathonTitle.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10)])
         
         
     }
