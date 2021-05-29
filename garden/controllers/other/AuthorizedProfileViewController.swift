@@ -33,6 +33,7 @@ class AuthorizedProfileViewController: UIViewController, UITableViewDataSource, 
         view.addSubview(tableView)
         fetchProfile()
         view.backgroundColor = .systemBackground
+        
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -59,7 +60,7 @@ class AuthorizedProfileViewController: UIViewController, UITableViewDataSource, 
         // Configure table models
         if let fio = model.fio {
             models.append("Имя: \(fio)")
-        } 
+        }
 
         models.append("E-mail: \(model.email)")
 

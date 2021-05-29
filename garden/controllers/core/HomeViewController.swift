@@ -43,41 +43,35 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         return s
     }()
     
-    private let spinner: UIActivityIndicatorView = {
-      let spin = UIActivityIndicatorView()
-        spin.tintColor = .label
-        spin.hidesWhenStopped = true
-        
-        return spin
-    }()
+   
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         //collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.frame = view.bounds
         collectionView.backgroundColor = .systemBackground
-//        NSLayoutConstraint.activate([collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//                                     collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-//
-//                                     collectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-//
-//                                     collectionView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor)])
-        
 
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         //view.backgroundColor = lightGreen
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
+        
+        
+        navigationItem.rightBarButtonItem =
+            UIBarButtonItem(
+            
             image: UIImage(systemName: "gearshape"),
             style: .done,
             target: self,
             action: #selector(didTapSettings))
         navigationItem.rightBarButtonItem?.tintColor = .black
-        view.addSubview(spinner)
+
         configureCollectionView()
         fetchData()
 
     }
+    
+
     @objc func didTapSettings() {
         let vc = SettingsViewController()
         vc.title = "Settings"
@@ -106,94 +100,63 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         let group = DispatchGroup()
         group.enter()
       //  group.enter()
-
         
-        var myHacksResponce: [Hack]?
-        var otherHacksResponce: [Hack]?
+        let child = SpinnerViewController()
 
+        // add the spinner view controller
+        addChild(child)
+        child.view.frame = view.frame
+        view.addSubview(child.view)
+        child.didMove(toParent: self)
 
-        APICaller.shared.getAllHacks { result in
-            defer{
-                group.leave()
-            }
-            switch result{
-            case .success(let model):
-                print("This is model")
-                print(model)
-                myHacksResponce = model
-                otherHacksResponce = model
-                break
-            case .failure(let error):
-                print("This is error")
+        // wait two seconds to simulate some work happening
 
-                print(error.localizedDescription)
-                break
-            }
-        }
+            // then remove the spinner view controller
+            child.willMove(toParent: nil)
+           
         
-//        myHacksResponce = HackathonDetailsResponce(hacks: [Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: [])])
-//        otherHacksResponce = HackathonDetailsResponce(hacks: [Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: []),Hack(id: 1, name: "Прорыв", description: "description", start_date: "2016-04-14T10:44:00+0000", image: "https://cdn22.img.ria.ru/images/07e4/05/06/1571020469_0:0:1920:1080_600x0_80_0_0_8492ea5758147feadb42f576ad3ae00c.jpg", url: "", location_lon: 23, location_lat: 5, sponsors: [], tags: [])])
-        //print(myHacksResponce)
-        group.notify(queue: .main) {
-            // Unwrap the optional responses
-            guard let myHacksModels = myHacksResponce,
-                  let otherHacksModels = otherHacksResponce else {
-                return
-            }
-            self.configureModels(myHacks: myHacksModels, otherHacks: otherHacksModels)
-         }
-        // Section2: Featured Playlists
         
-//        APICaller.shared.getFeaturedPlaylists { result in
-//            defer{
-//                group.leave()
-//            }
-//            switch result{
-//            case .success(let model):
-//                featuredPlaylist = model
-//                break
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//                break
-//            }
-//        }
-//        // Section3: Recommended Tracks
-//        APICaller.shared.getRecommendationGenres{ result in
-//            switch result{
-//            case .success(let model):
-//                let genres = model.genres
-//                var seeds = Set<String>()
-//                while seeds.count < 5 {
-//                    if let random = genres.randomElement(){
-//                        seeds.insert(random)
-//                    }
-//                }
-//                APICaller.shared.getRecommendations(genres: seeds) { recommendedResult in
-//                    defer{
-//                        group.leave()
-//                    }
-//                    switch recommendedResult{
-//                    case .success(let model):
-//                        recommendations = model
-//                        break
-//                    case .failure(let error):
-//                        print(error.localizedDescription)
-//                        break
-//                    }
-//                }
-//            case .failure( _): break
-//            }
-//        }
-        //Once no.of group enteries is equal to no.of group leaves
-//        group.notify(queue: .main) {
-//            // Unwrap the optional responses
-//            guard let newAlbums = newReleases?.albums.items,
-//                 // let playlists = featuredPlaylist?.playlists.items ,
-//                  let tracks = recommendations?.tracks else {
-//                return
-//            }
-//            self.configureModels(newAlbums: newAlbums, playlists: playlists, tracks: tracks)
-//    }
+        
+            
+           // Code you want to be delayed
+            var myHacksResponce: [Hack]?
+            var otherHacksResponce: [Hack]?
+
+
+            APICaller.shared.getAllHacks { result in
+                defer{
+                    group.leave()
+                }
+                switch result{
+                case .success(let model):
+                    print("This is model")
+                    print(model)
+                    myHacksResponce = model
+                    otherHacksResponce = model
+                    break
+                case .failure(let error):
+                    print("This is error")
+
+                    print(error.localizedDescription)
+                    break
+                }
+            }
+            child.view.removeFromSuperview()
+            child.removeFromParent()
+
+            group.notify(queue: .main) {
+                // Unwrap the optional responses
+                guard let myHacksModels = myHacksResponce,
+                      let otherHacksModels = otherHacksResponce else {
+                    return
+                }
+                self.configureModels(myHacks: myHacksModels, otherHacks: otherHacksModels)
+             }
+            // Section2: Featured Playlists
+        
+        
+        
+
     }
     private func configureModels(
         myHacks: [Hack],
@@ -214,8 +177,9 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         })))
         sections.append(.otherHackathons(viewModels: otherHacks.compactMap({return LatestHackathonsCollectionViewModel(title: $0.name!, hackathonImage: URL(string: $0.image!), date: dateFormatter.date(from: $0.start_date!)!)})))
 
-
-        collectionView.reloadData()
+        
+            self.collectionView.reloadData()
+        
     }
 
 
@@ -240,14 +204,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         switch section{
         case .latestHackathons:
             let hack = myHacks[indexPath.row]
-            let vc = HackathonInfoViewController()
+            let vc = HackathonInfoViewController(hack: hack)
             vc.title = hack.name
             vc.navigationItem.largeTitleDisplayMode = .always
             navigationController?.pushViewController(vc, animated: false)
         case .otherHackathons:
             let hack = myHacks[indexPath.row]
-            let vc = HackathonInfoViewController()
-            vc.title = hack.name
+            let vc = HackathonInfoViewController(hack: hack)
             vc.navigationItem.largeTitleDisplayMode = .always
             
             navigationController?.pushViewController(vc, animated: false)
@@ -286,8 +249,17 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                     for: indexPath) as? LatestHackathonsCollectionViewCell else {
                return UICollectionViewCell()
             }
-            let viewModel = viewModels[indexPath.row]
-            cell.configure(with: viewModel)
+            DispatchQueue.global().async {
+                let viewModel = viewModels[indexPath.row]
+
+                DispatchQueue.main.async {
+                    cell.configure(with: viewModel)
+
+                }
+            }
+            
+            
+            
             return cell
         case .otherHackathons(let viewModels):
             guard let cell = collectionView.dequeueReusableCell(

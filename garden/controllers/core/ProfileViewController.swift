@@ -9,7 +9,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     let lightGreen = UIColor(rgb: 0x43dfa8)
-    let white = UIColor.systemGray
+    let black = UIColor.black
     public var completionHandler: ((Bool)->Void)?
 
     private lazy var errorLabel: UILabel = {
@@ -22,28 +22,22 @@ class ProfileViewController: UIViewController {
     }()
     private lazy var loginField: UITextField = {
         var field = UITextField()
-        field.translatesAutoresizingMaskIntoConstraints = false
-        field.borderStyle = .roundedRect
-        field.layer.borderWidth = 1.0
-        //field.layer.cornerRadius = 10.0
+        field.styleField()
         field.placeholder = "Почта"
        return field
     }()
     private lazy var passwordField: UITextField = {
         var field = UITextField()
-        field.translatesAutoresizingMaskIntoConstraints = false
-        field.borderStyle = .roundedRect
-        //field.layer.borderColor = white.cgColor
-        field.layer.borderWidth = 1.0
-        //field.layer.cornerRadius = 10.0
+        field.styleField()
         field.placeholder = "Пароль"
-       return field
+        
+        return field
     }()
     private lazy var loginBtn: UIButton = {
         var btn = UIButton()
-        btn.backgroundColor = .gray
-        btn.setTitle("Войти", for: .normal)
-        btn.setTitleColor(.black, for: .normal)
+        btn.backgroundColor = .black
+        btn.setTitle("Вход", for: .normal)
+        btn.setTitleColor(.white, for: .normal)
         btn.layer.cornerRadius = 30
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
@@ -52,7 +46,7 @@ class ProfileViewController: UIViewController {
     }()
     private lazy var registerBtn: UIButton = {
         var btn = UIButton()
-        btn.setTitle("Зарегистрироваться", for: .normal)
+        btn.setTitle("Регистрация", for: .normal)
         btn.backgroundColor = lightGreen
         btn.layer.cornerRadius = 30
 

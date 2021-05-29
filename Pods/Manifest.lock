@@ -1,18 +1,22 @@
 PODS:
+  - CollectionViewPagingLayout (1.0.1)
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
 
 DEPENDENCIES:
+  - CollectionViewPagingLayout
   - SDWebImage
 
 SPEC REPOS:
   trunk:
+    - CollectionViewPagingLayout
     - SDWebImage
 
 SPEC CHECKSUMS:
+  CollectionViewPagingLayout: 9c75b7edf3f2334f308c402622412960f67c18a4
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
 
-PODFILE CHECKSUM: c83d916d30acd8c3ddf2114a8e5d6dbe193648d0
+PODFILE CHECKSUM: d04229ace7c431621d66fb767e20585d7cddba7e
 
 COCOAPODS: 1.10.1

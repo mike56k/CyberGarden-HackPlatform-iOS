@@ -24,7 +24,7 @@ class OtherHackathonsCollectionViewCell: UICollectionViewCell {
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         return label
     }()
     private let hackathonDate: UILabel = {
@@ -55,7 +55,7 @@ class OtherHackathonsCollectionViewCell: UICollectionViewCell {
         self.layer.cornerRadius = 20
         self.layer.masksToBounds = true
         NSLayoutConstraint.activate([hackathonCover.topAnchor.constraint(equalTo: self.topAnchor), hackathonCover.bottomAnchor.constraint(equalTo: self.bottomAnchor),hackathonCover.rightAnchor.constraint(equalTo: self.rightAnchor),hackathonCover.leftAnchor.constraint(equalTo: self.leftAnchor)])
-        NSLayoutConstraint.activate([hackathonTitle.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20), hackathonTitle.centerYAnchor.constraint(equalTo: self.centerYAnchor)])
+        NSLayoutConstraint.activate([hackathonTitle.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20), hackathonTitle.centerYAnchor.constraint(equalTo: self.centerYAnchor), hackathonTitle.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5 )])
         NSLayoutConstraint.activate([hackathonDate.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20), hackathonDate.centerYAnchor.constraint(equalTo: self.centerYAnchor)])
     }
     override func prepareForReuse() {

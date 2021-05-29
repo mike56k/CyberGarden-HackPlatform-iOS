@@ -25,25 +25,19 @@ class AuthViewController: UIViewController {
     }()
     private lazy var firstName: UITextField = {
         var field = UITextField()
-        field.translatesAutoresizingMaskIntoConstraints = false
-        field.borderStyle = .roundedRect
-        field.layer.borderWidth = 1.0
+        field.styleField()
         field.placeholder = "Имя"
        return field
     }()
     private lazy var secondName: UITextField = {
         var field = UITextField()
-        field.translatesAutoresizingMaskIntoConstraints = false
-        field.borderStyle = .roundedRect
-        field.layer.borderWidth = 1.0
+        field.styleField()
         field.placeholder = "Фамилия"
        return field
     }()
     private lazy var thirdName: UITextField = {
         var field = UITextField()
-        field.translatesAutoresizingMaskIntoConstraints = false
-        field.borderStyle = .roundedRect
-        field.layer.borderWidth = 1.0
+        field.styleField()
         field.placeholder = "Отчество"
        return field
     }()
@@ -58,18 +52,13 @@ class AuthViewController: UIViewController {
     }()
     private lazy var loginField: UITextField = {
         var field = UITextField()
-        field.translatesAutoresizingMaskIntoConstraints = false
-        field.borderStyle = .roundedRect
-        field.layer.borderWidth = 1.0
+        field.styleField()
         field.placeholder = "Почта"
        return field
     }()
     private lazy var passwordField: UITextField = {
         var field = UITextField()
-        field.translatesAutoresizingMaskIntoConstraints = false
-        field.borderStyle = .roundedRect
-        field.layer.borderWidth = 1.0
-    
+        field.styleField()
         field.placeholder = "Пароль"
        return field
     }()

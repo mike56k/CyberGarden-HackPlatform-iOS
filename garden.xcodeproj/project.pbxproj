@@ -37,6 +37,9 @@
 		740D723D26626439003CE90D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D723A26626439003CE90D /* Constants.swift */; };
 		740D725C26626A5B003CE90D /* OtherHackathonsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D725B26626A5B003CE90D /* OtherHackathonsCollectionViewCell.swift */; };
 		740D725F26627838003CE90D /* AuthorizedProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D725E26627838003CE90D /* AuthorizedProfileViewController.swift */; };
+		740D72632662C07A003CE90D /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D72622662C07A003CE90D /* SpinnerViewController.swift */; };
+		740D72662662C21C003CE90D /* StyleGuides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D72652662C21C003CE90D /* StyleGuides.swift */; };
+		740D726D2662E8EE003CE90D /* HackCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D726C2662E8EE003CE90D /* HackCard.swift */; };
 		880CF55ACF2F2A4080FE4FA3 /* Pods_garden.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1026D9F79EE9E3AA5B776EB0 /* Pods_garden.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +77,9 @@
 		740D723A26626439003CE90D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		740D725B26626A5B003CE90D /* OtherHackathonsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherHackathonsCollectionViewCell.swift; sourceTree = "<group>"; };
 		740D725E26627838003CE90D /* AuthorizedProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedProfileViewController.swift; sourceTree = "<group>"; };
+		740D72622662C07A003CE90D /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
+		740D72652662C21C003CE90D /* StyleGuides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuides.swift; sourceTree = "<group>"; };
+		740D726C2662E8EE003CE90D /* HackCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackCard.swift; sourceTree = "<group>"; };
 		BCF179C2B747A2B96FD02CEB /* Pods-garden.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-garden.debug.xcconfig"; path = "Target Support Files/Pods-garden/Pods-garden.debug.xcconfig"; sourceTree = "<group>"; };
 		DE198FB6F1908BA685CAD512 /* Pods-garden.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-garden.release.xcconfig"; path = "Target Support Files/Pods-garden/Pods-garden.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,6 +174,7 @@
 				740D723326626427003CE90D /* TitleHeaderCollectionReusableView.swift */,
 				740D71E8266261D6003CE90D /* LaunchScreen.storyboard */,
 				740D725B26626A5B003CE90D /* OtherHackathonsCollectionViewCell.swift */,
+				740D726C2662E8EE003CE90D /* HackCard.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -206,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				740D71FE26626324003CE90D /* Utilities.swift */,
+				740D72652662C21C003CE90D /* StyleGuides.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -231,6 +239,7 @@
 				740D721A266263A4003CE90D /* SettingsViewController.swift */,
 				740D7219266263A4003CE90D /* WelcomeViewController.swift */,
 				740D725E26627838003CE90D /* AuthorizedProfileViewController.swift */,
+				740D72622662C07A003CE90D /* SpinnerViewController.swift */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -351,6 +360,7 @@
 				740D723126626407003CE90D /* AuthManager.swift in Sources */,
 				740D72072662634A003CE90D /* SceneDelegate.swift in Sources */,
 				740D723C26626439003CE90D /* UIColor+Extension.swift in Sources */,
+				740D726D2662E8EE003CE90D /* HackCard.swift in Sources */,
 				740D723626626427003CE90D /* LatestHackathonsCollectionViewCell.swift in Sources */,
 				740D722A266263E1003CE90D /* UserToken.swift in Sources */,
 				740D72132662638F003CE90D /* ProfileViewController.swift in Sources */,
@@ -362,6 +372,7 @@
 				740D72112662638F003CE90D /* SearchViewController.swift in Sources */,
 				740D7228266263E1003CE90D /* AuthResponce.swift in Sources */,
 				740D721F266263A4003CE90D /* WelcomeViewController.swift in Sources */,
+				740D72632662C07A003CE90D /* SpinnerViewController.swift in Sources */,
 				740D7220266263A4003CE90D /* SettingsViewController.swift in Sources */,
 				740D722B266263E1003CE90D /* HackathonDetailsResponse.swift in Sources */,
 				740D71DE266261D4003CE90D /* AppDelegate.swift in Sources */,
@@ -371,6 +382,7 @@
 				740D71FF26626324003CE90D /* Utilities.swift in Sources */,
 				740D721E266263A4003CE90D /* HackathonInfoViewController.swift in Sources */,
 				740D72102662638F003CE90D /* HomeViewController.swift in Sources */,
+				740D72662662C21C003CE90D /* StyleGuides.swift in Sources */,
 				740D723026626407003CE90D /* APICaller.swift in Sources */,
 				740D7227266263E1003CE90D /* SettingsModels.swift in Sources */,
 				740D725C26626A5B003CE90D /* OtherHackathonsCollectionViewCell.swift in Sources */,

@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        window.rootViewController = TabBarViewController()
         
         window.makeKeyAndVisible()
+        window.tintColor = .black
         self.window = window
 
         return true
