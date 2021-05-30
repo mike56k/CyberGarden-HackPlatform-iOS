@@ -63,8 +63,12 @@ class AuthorizedProfileViewController: UIViewController, UITableViewDataSource, 
         }
 
         models.append("E-mail: \(model.email)")
-
-
+        
+        models.append("Имя: Иван")
+        models.append("Фамилия: Рыбов")
+        models.append("Отчество: Васильевич")
+        
+        models.append("Навыки: JavaScript, NodeJS, React")
         createTableHeader(with: "https://123tlumacz.pl/wp-content/uploads/2014/08/photodune-2360811-computer-programmer-s.jpg")
         tableView.reloadData()
     }
