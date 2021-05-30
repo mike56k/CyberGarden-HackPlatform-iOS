@@ -172,10 +172,10 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         //Configure models with compactMap to return viewModels
         sections.append(.latestHackathons(viewModels: myHacks.compactMap({
             return LatestHackathonsCollectionViewModel(
-                title: $0.name!, hackathonImage: URL(string: $0.image!), date: dateFormatter.date(from: $0.start_date!)!
+                title: $0.name!, hackathonImage: URL(string: $0.image ?? "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Junction_2015.jpg/1200px-Junction_2015.jpg"), date: dateFormatter.date(from: $0.start_date!)!
                 )
         })))
-        sections.append(.otherHackathons(viewModels: otherHacks.compactMap({return LatestHackathonsCollectionViewModel(title: $0.name!, hackathonImage: URL(string: $0.image!), date: dateFormatter.date(from: $0.start_date!)!)})))
+        sections.append(.otherHackathons(viewModels: otherHacks.compactMap({return LatestHackathonsCollectionViewModel(title: $0.name!, hackathonImage: URL(string: $0.image ?? "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Junction_2015.jpg/1200px-Junction_2015.jpg"), date: dateFormatter.date(from: $0.start_date!)!)})))
 
         
             self.collectionView.reloadData()

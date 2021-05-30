@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SSCustomTabbar
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,7 +20,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         window.tintColor = .black
-            window.rootViewController = TabBarViewController()
+        
+        
+      
+        
+        
+        
+        //nc1.tabBarItem = UITabBarItem(title: "Афиша", image: UIImage(systemName: "star.fill"), tag: 1)
+        //nc2.tabBarItem = UITabBarItem(title: "Поиск", image: UIImage(systemName: "magnifyingglass"), tag: 1)
+        //nc3.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person.fill"), tag: 1)
+        //ss.tabBar.tintColor = .black
+        
+        
+        window.rootViewController = TabBarViewController()
      
         
         window.makeKeyAndVisible()

@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
@@ -17,8 +18,7 @@ class TabBarViewController: UITabBarController {
         
         
         vc1.title = "Афиша"
-        
-        vc2.title = "Поиск"
+        vc2.title = "Ваши команды"
         vc3.title = "Авторизация"
         
         vc1.navigationItem.largeTitleDisplayMode = .always
@@ -35,8 +35,8 @@ class TabBarViewController: UITabBarController {
         
         
         
+        nc2.tabBarItem = UITabBarItem(title: "Команды", image: UIImage(systemName: "person.3.fill"), tag: 1)
         nc1.tabBarItem = UITabBarItem(title: "Афиша", image: UIImage(systemName: "star.fill"), tag: 1)
-        nc2.tabBarItem = UITabBarItem(title: "Поиск", image: UIImage(systemName: "magnifyingglass"), tag: 1)
         nc3.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person.fill"), tag: 1)
         self.tabBar.tintColor = .black
         

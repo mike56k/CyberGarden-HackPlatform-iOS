@@ -3,20 +3,24 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
+  - SSCustomTabbar (2.0.6)
 
 DEPENDENCIES:
   - CollectionViewPagingLayout
   - SDWebImage
+  - SSCustomTabbar
 
 SPEC REPOS:
   trunk:
     - CollectionViewPagingLayout
     - SDWebImage
+    - SSCustomTabbar
 
 SPEC CHECKSUMS:
   CollectionViewPagingLayout: 9c75b7edf3f2334f308c402622412960f67c18a4
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SSCustomTabbar: a52533e429bd40f52ce8d7ecb801f3521fbd56a0
 
-PODFILE CHECKSUM: d04229ace7c431621d66fb767e20585d7cddba7e
+PODFILE CHECKSUM: 4d97f60e007bdb460801c048089f4c0cc8591211
 
 COCOAPODS: 1.10.1

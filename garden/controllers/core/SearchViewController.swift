@@ -24,6 +24,8 @@ class SearchViewController: UIViewController, UICollectionViewDataSource {
             collectionView.register(MyCell.self, forCellWithReuseIdentifier: "cell")
             collectionView.dataSource = self
             collectionView.backgroundColor = .systemBackground
+            collectionView.showsHorizontalScrollIndicator = false
+
             view.addSubview(collectionView)
         }
         
