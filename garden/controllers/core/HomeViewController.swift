@@ -150,7 +150,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
                       let otherHacksModels = otherHacksResponce else {
                     return
                 }
-                self.configureModels(myHacks: myHacksModels, otherHacks: otherHacksModels)
+                self.configureModels(myHacks: Array(myHacksModels[0..<6]), otherHacks: Array(otherHacksModels[6...17]))
              }
             // Section2: Featured Playlists
         
@@ -209,7 +209,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             vc.navigationItem.largeTitleDisplayMode = .always
             navigationController?.pushViewController(vc, animated: false)
         case .otherHackathons:
-            let hack = myHacks[indexPath.row]
+            print(indexPath.row)
+            let hack = otherHacks[indexPath.row]
             let vc = HackathonInfoViewController(hack: hack)
             vc.navigationItem.largeTitleDisplayMode = .always
             

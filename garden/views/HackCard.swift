@@ -7,20 +7,29 @@
 
 import UIKit
 import CollectionViewPagingLayout
+import SDWebImage
 class MyCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource {
     let lightGreen = UIColor(rgb: 0x43dfa8)
-
+    
+    var members:[String] = []
+    
+    var mytitle: String = ""
+    
+    var logo: String = ""
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return members.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "Михаил"
+        cell.textLabel?.text = members[indexPath.item]
         cell.textLabel?.textAlignment = .center
         cell.contentView.backgroundColor = UIColor.clear
         cell.backgroundColor = UIColor.clear
         cell.selectionStyle = .none
+        
         return cell
     }
     private let tableView: UITableView = {
@@ -68,7 +77,7 @@ class MyCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.sd_setImage(with: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/768px-LEGO_logo.svg.png"), completed: nil)
         //Adding corner radius to image
-        imageView.layer.cornerRadius = 40
+        imageView.layer.cornerRadius = 50
         imageView.layer.masksToBounds = true
         return imageView
     }()
@@ -80,7 +89,13 @@ class MyCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource {
         super.init(frame: frame)
         setup()
     }
-    
+    func configure(members: [String], mytitle: String, logo: String) {
+        self.members = members
+        self.mytitle = mytitle
+        self.logo = logo
+        teamName.text = self.mytitle
+        self.logoImageView.sd_setImage(with: URL(string: self.logo), completed: nil)
+    }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
@@ -107,14 +122,14 @@ class MyCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource {
         card.addSubview(teamName)
         card.addSubview(logoImageView)
         card.addSubview(copyLinkButton)
-        teamName.text = "Garden Masters"
+        
         teamName.textAlignment = .center
         inviteLink.text = "https://stackoverflow.com/questions/29791644/disabling-user-input-for-uitextfield-in-swift"
         
         print("HERE")
         NSLayoutConstraint.activate([teamName.topAnchor.constraint(equalTo: card.topAnchor, constant: 30), teamName.centerXAnchor.constraint(equalTo: card.centerXAnchor), teamName.widthAnchor.constraint(equalTo: card.widthAnchor, multiplier: 0.9)])
-        NSLayoutConstraint.activate([logoImageView.topAnchor.constraint(equalTo: teamName.bottomAnchor, constant: 10), logoImageView.widthAnchor.constraint(equalTo: card.widthAnchor, multiplier: 0.8), logoImageView.heightAnchor.constraint(equalTo: card.heightAnchor, multiplier: 0.2), logoImageView.centerXAnchor.constraint(equalTo: card.centerXAnchor) ])
-        NSLayoutConstraint.activate([copyLinkButton.bottomAnchor.constraint(equalTo: card.bottomAnchor, constant: -30), copyLinkButton.centerXAnchor.constraint(equalTo: card.centerXAnchor), copyLinkButton.widthAnchor.constraint(equalTo: card.widthAnchor, multiplier: 0.8)])
+        NSLayoutConstraint.activate([logoImageView.topAnchor.constraint(equalTo: teamName.bottomAnchor, constant: 10), logoImageView.widthAnchor.constraint(equalToConstant: 100), logoImageView.heightAnchor.constraint(equalToConstant: 100), logoImageView.centerXAnchor.constraint(equalTo: card.centerXAnchor) ])
+        NSLayoutConstraint.activate([copyLinkButton.bottomAnchor.constraint(equalTo: card.bottomAnchor, constant: -20), copyLinkButton.centerXAnchor.constraint(equalTo: card.centerXAnchor), copyLinkButton.widthAnchor.constraint(equalTo: card.widthAnchor, multiplier: 0.8)])
         NSLayoutConstraint.activate([tableView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 10), tableView.bottomAnchor.constraint(equalTo: copyLinkButton.topAnchor, constant: -10), tableView.widthAnchor.constraint(equalTo: card.widthAnchor, multiplier: 0.8), tableView.centerXAnchor.constraint(equalTo: card.centerXAnchor)])
     }
     

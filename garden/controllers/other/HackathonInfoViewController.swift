@@ -36,10 +36,6 @@ class HackathonInfoViewController: UIViewController, UITableViewDataSource, UITa
         createTableHeader(with: hack.image)
         updateUI()
         tableView.reloadData()
-        
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Пойду!", style: .done, target: self, action:  #selector(didTapSettings))
-        navigationItem.rightBarButtonItem?.tintColor = .black
 
     }
     private func updateUI(){
@@ -94,20 +90,26 @@ class HackathonInfoViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models.count
     }
+    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let v = UIView()
 
-        let btn = UIButton(frame: CGRect(x: 10, y: 5, width: tableView.frame.width-30, height: 30))
-   
-        btn.setTitle("Зарегестрироваться", for: .normal)
-        btn.tintColor = .black
+        let btn = UIButton(frame: CGRect(x: 0 , y: 0, width: self.view.frame.width, height: 35))
+        btn.backgroundColor = UIColor(rgb: 0x43dfa8)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        //btn.titleLabel?.font = .systemFont(ofSize: 22, weight: .medium)
+        btn.setTitle("Пойду", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        btn.addTarget(self, action: #selector(didTapWantToParticipate), for: .touchUpInside)
+
         
         
              let segmentedControl = UISegmentedControl(frame: CGRect(x: 10, y: 5, width: tableView.frame.width - 20, height: 30))
              segmentedControl.insertSegment(withTitle: "One", at: 0, animated: false)
              segmentedControl.insertSegment(withTitle: "Two", at: 1, animated: false)
              segmentedControl.insertSegment(withTitle: "Three", at: 2, animated: false)
-             v.addSubview(segmentedControl)
+             v.addSubview(btn)
              return v
     }
     
@@ -122,11 +124,11 @@ class HackathonInfoViewController: UIViewController, UITableViewDataSource, UITa
         cell.selectionStyle = .none
         return cell
     }
-    @objc func didTapSettings() {
-        let vc = SettingsViewController()
-        vc.title = "Settings"
-        vc.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.pushViewController(vc, animated: true)
+    @objc func didTapWantToParticipate() {
+        let vc = SuccessHackRegistrationViewController()
+        
+        //vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: false)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

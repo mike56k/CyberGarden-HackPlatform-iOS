@@ -40,6 +40,7 @@
 		740D72632662C07A003CE90D /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D72622662C07A003CE90D /* SpinnerViewController.swift */; };
 		740D72662662C21C003CE90D /* StyleGuides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D72652662C21C003CE90D /* StyleGuides.swift */; };
 		740D726D2662E8EE003CE90D /* HackCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D726C2662E8EE003CE90D /* HackCard.swift */; };
+		740D727626632A83003CE90D /* SuccessHackRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D727526632A82003CE90D /* SuccessHackRegistrationViewController.swift */; };
 		880CF55ACF2F2A4080FE4FA3 /* Pods_garden.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1026D9F79EE9E3AA5B776EB0 /* Pods_garden.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		740D72622662C07A003CE90D /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		740D72652662C21C003CE90D /* StyleGuides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuides.swift; sourceTree = "<group>"; };
 		740D726C2662E8EE003CE90D /* HackCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackCard.swift; sourceTree = "<group>"; };
+		740D727526632A82003CE90D /* SuccessHackRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessHackRegistrationViewController.swift; sourceTree = "<group>"; };
 		BCF179C2B747A2B96FD02CEB /* Pods-garden.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-garden.debug.xcconfig"; path = "Target Support Files/Pods-garden/Pods-garden.debug.xcconfig"; sourceTree = "<group>"; };
 		DE198FB6F1908BA685CAD512 /* Pods-garden.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-garden.release.xcconfig"; path = "Target Support Files/Pods-garden/Pods-garden.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -240,6 +242,7 @@
 				740D7219266263A4003CE90D /* WelcomeViewController.swift */,
 				740D725E26627838003CE90D /* AuthorizedProfileViewController.swift */,
 				740D72622662C07A003CE90D /* SpinnerViewController.swift */,
+				740D727526632A82003CE90D /* SuccessHackRegistrationViewController.swift */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				740D7228266263E1003CE90D /* AuthResponce.swift in Sources */,
 				740D721F266263A4003CE90D /* WelcomeViewController.swift in Sources */,
 				740D72632662C07A003CE90D /* SpinnerViewController.swift in Sources */,
+				740D727626632A83003CE90D /* SuccessHackRegistrationViewController.swift in Sources */,
 				740D7220266263A4003CE90D /* SettingsViewController.swift in Sources */,
 				740D722B266263E1003CE90D /* HackathonDetailsResponse.swift in Sources */,
 				740D71DE266261D4003CE90D /* AppDelegate.swift in Sources */,
