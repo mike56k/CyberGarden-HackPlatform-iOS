@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController {
         var field = UITextField()
         field.styleField()
         field.placeholder = "Пароль"
-        
+        field.isSecureTextEntry = true
         return field
     }()
     private lazy var loginBtn: UIButton = {

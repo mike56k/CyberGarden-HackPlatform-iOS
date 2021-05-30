@@ -25,7 +25,7 @@ struct Hack: Codable {
     let image: String?
     let url: String?
     let location_lon: Int?
-    let location_lat: Int?#imageLiteral(resourceName: "simulator_screenshot_7A165787-D360-4F9E-8654-16D6CCF2F224.png")
+    let location_lat: Int?
     let location: Location?
     
     let sponsors: [Sponsor]
