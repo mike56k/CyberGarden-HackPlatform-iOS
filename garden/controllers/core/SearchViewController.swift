@@ -39,6 +39,9 @@ class SearchViewController: UIViewController, UICollectionViewDataSource {
     
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyCell
+            
+            
+            
             print(tempTitles[indexPath.item])
             cell.configure(members: tempUsers[indexPath.item], mytitle: tempTitles[indexPath.item], logo: tempLogos[indexPath.item])
             return cell

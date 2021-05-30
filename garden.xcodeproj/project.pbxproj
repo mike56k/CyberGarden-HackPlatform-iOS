@@ -17,9 +17,7 @@
 		740D72112662638F003CE90D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D720D2662638F003CE90D /* SearchViewController.swift */; };
 		740D72122662638F003CE90D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D720E2662638F003CE90D /* TabBarViewController.swift */; };
 		740D72132662638F003CE90D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D720F2662638F003CE90D /* ProfileViewController.swift */; };
-		740D721B266263A4003CE90D /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D7215266263A4003CE90D /* SearchResultsViewController.swift */; };
 		740D721C266263A4003CE90D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D7216266263A4003CE90D /* AuthViewController.swift */; };
-		740D721D266263A4003CE90D /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D7217266263A4003CE90D /* PlayerViewController.swift */; };
 		740D721E266263A4003CE90D /* HackathonInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D7218266263A4003CE90D /* HackathonInfoViewController.swift */; };
 		740D721F266263A4003CE90D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D7219266263A4003CE90D /* WelcomeViewController.swift */; };
 		740D7220266263A4003CE90D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D721A266263A4003CE90D /* SettingsViewController.swift */; };
@@ -58,9 +56,7 @@
 		740D720D2662638F003CE90D /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		740D720E2662638F003CE90D /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		740D720F2662638F003CE90D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		740D7215266263A4003CE90D /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		740D7216266263A4003CE90D /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		740D7217266263A4003CE90D /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		740D7218266263A4003CE90D /* HackathonInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HackathonInfoViewController.swift; sourceTree = "<group>"; };
 		740D7219266263A4003CE90D /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		740D721A266263A4003CE90D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -236,8 +232,6 @@
 			children = (
 				740D7216266263A4003CE90D /* AuthViewController.swift */,
 				740D7218266263A4003CE90D /* HackathonInfoViewController.swift */,
-				740D7217266263A4003CE90D /* PlayerViewController.swift */,
-				740D7215266263A4003CE90D /* SearchResultsViewController.swift */,
 				740D721A266263A4003CE90D /* SettingsViewController.swift */,
 				740D7219266263A4003CE90D /* WelcomeViewController.swift */,
 				740D725E26627838003CE90D /* AuthorizedProfileViewController.swift */,
@@ -369,7 +363,6 @@
 				740D72132662638F003CE90D /* ProfileViewController.swift in Sources */,
 				740D7229266263E1003CE90D /* UserProfile.swift in Sources */,
 				740D723B26626439003CE90D /* UIView+Extention.swift in Sources */,
-				740D721B266263A4003CE90D /* SearchResultsViewController.swift in Sources */,
 				740D721C266263A4003CE90D /* AuthViewController.swift in Sources */,
 				740D723D26626439003CE90D /* Constants.swift in Sources */,
 				740D72112662638F003CE90D /* SearchViewController.swift in Sources */,
@@ -380,7 +373,6 @@
 				740D7220266263A4003CE90D /* SettingsViewController.swift in Sources */,
 				740D722B266263E1003CE90D /* HackathonDetailsResponse.swift in Sources */,
 				740D71DE266261D4003CE90D /* AppDelegate.swift in Sources */,
-				740D721D266263A4003CE90D /* PlayerViewController.swift in Sources */,
 				740D72122662638F003CE90D /* TabBarViewController.swift in Sources */,
 				740D725F26627838003CE90D /* AuthorizedProfileViewController.swift in Sources */,
 				740D71FF26626324003CE90D /* Utilities.swift in Sources */,

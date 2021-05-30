@@ -17,7 +17,7 @@ enum BrowseSectionType {
             return "Другие хакатоны"
         }}
 }
-class HomeViewController: UIViewController, UISearchBarDelegate {
+class HomeViewController: UIViewController {
     let lightGreen = UIColor(rgb: 0x43dfa8)
     private var myHacks: [Hack] = []
     private var otherHacks: [Hack] = []
@@ -31,17 +31,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
     )
     return cv
     }()
-    
-    private lazy var searchBar : UISearchBar = {
-        let s = UISearchBar()
-            s.placeholder = "Введите название хакатона"
-            s.delegate = self
-            //s.tintColor = .white
-            //s.barTintColor = // color you like
-            s.barStyle = .default
-            s.sizeToFit()
-        return s
-    }()
+  
     
    
     

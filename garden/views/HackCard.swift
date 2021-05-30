@@ -43,7 +43,7 @@ class MyCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource {
     }()
     private  let teamName: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 22, weight: .regular)
+        label.font = .systemFont(ofSize: 22, weight: .bold)
         label.textColor = .black
         label.numberOfLines = 3
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -60,29 +60,45 @@ class MyCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource {
         
         return field
     }()
-    private  let copyLinkButton: UIButton = {
+   
+    private lazy var copyLinkButton: UIButton = {
         let btn = UIButton()
         btn.backgroundColor = .black
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.layer.cornerRadius = 10
-        btn.titleLabel?.font = .systemFont(ofSize: 22, weight: .medium)
-        btn.setTitle("Пригласить", for: .normal)
+        //btn.titleLabel?.font = .systemFont(ofSize: 22, weight: .medium)
+        btn.setTitle("⠀Ссылка", for: .normal)
+        btn.setImage(UIImage(systemName: "link"), for: .normal)
+        
+        btn.addTarget(self, action: #selector(didTapWantToCopy), for: .touchUpInside)
         btn.tintColor = .white
         btn.setTitleColor(.white, for: .normal)
         return btn
     }()
     
-    private let inviteSomeone: UIButton = {
-        let btn = UIButton()
-        btn.backgroundColor = .black
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.layer.cornerRadius = 10
-        btn.setTitleColor(.white, for: .normal)
-        btn.setImage(UIImage(systemName: "link"), for: .normal)
-        btn.tintColor = .white
+    @objc func didTapWantToCopy(){
+        // write to clipboard
+        UIPasteboard.general.string = "Hello world"
 
-        return btn
-    }()
+        // read from clipboard
+        let content = UIPasteboard.general.string
+        
+        let alert = UIAlertController(title: "Ссылка скопирована",
+                                      message: "в буффер обмена",
+                                      preferredStyle: .actionSheet)
+        //alert.addAction(UIAlertAction(title: "Еще раз", style: .cancel, handler: nil))
+        
+        if let vc = self.next(ofType: UIViewController.self) {
+            vc.present(alert, animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                vc.dismiss(animated: true, completion: nil)
+
+            }
+        }
+
+        print(content!)
+    }
+
     
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -135,16 +151,16 @@ class MyCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource {
         card.addSubview(teamName)
         card.addSubview(logoImageView)
         card.addSubview(copyLinkButton)
-        card.addSubview(inviteSomeone)
+
         teamName.textAlignment = .center
         inviteLink.text = "https://stackoverflow.com/questions/29791644/disabling-user-input-for-uitextfield-in-swift"
         
         print("HERE")
         NSLayoutConstraint.activate([teamName.topAnchor.constraint(equalTo: card.topAnchor, constant: 30), teamName.centerXAnchor.constraint(equalTo: card.centerXAnchor), teamName.widthAnchor.constraint(equalTo: card.widthAnchor, multiplier: 0.9)])
         NSLayoutConstraint.activate([logoImageView.topAnchor.constraint(equalTo: teamName.bottomAnchor, constant: 10), logoImageView.widthAnchor.constraint(equalToConstant: 100), logoImageView.heightAnchor.constraint(equalToConstant: 100), logoImageView.centerXAnchor.constraint(equalTo: card.centerXAnchor) ])
-        NSLayoutConstraint.activate([copyLinkButton.bottomAnchor.constraint(equalTo: card.bottomAnchor, constant: -20), copyLinkButton.centerXAnchor.constraint(equalTo: card.centerXAnchor, constant: -20), copyLinkButton.widthAnchor.constraint(equalTo: card.widthAnchor, multiplier: 0.7)])
+        NSLayoutConstraint.activate([copyLinkButton.bottomAnchor.constraint(equalTo: card.bottomAnchor, constant: -20), copyLinkButton.centerXAnchor.constraint(equalTo: card.centerXAnchor), copyLinkButton.widthAnchor.constraint(equalTo: card.widthAnchor, multiplier: 0.8), copyLinkButton.heightAnchor.constraint(equalToConstant: 30)])
         NSLayoutConstraint.activate([tableView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 10), tableView.bottomAnchor.constraint(equalTo: copyLinkButton.topAnchor, constant: -10), tableView.widthAnchor.constraint(equalTo: card.widthAnchor, multiplier: 0.8), tableView.centerXAnchor.constraint(equalTo: card.centerXAnchor)])
-        NSLayoutConstraint.activate([inviteSomeone.bottomAnchor.constraint(equalTo: card.bottomAnchor, constant: -20), inviteSomeone.centerXAnchor.constraint(equalTo: card.centerXAnchor, constant: 80), inviteSomeone.widthAnchor.constraint(equalTo: card.widthAnchor, multiplier: 0.2), inviteSomeone.heightAnchor.constraint(equalTo: copyLinkButton.heightAnchor)])
+
     }
     
     
@@ -161,3 +177,13 @@ extension MyCell: ScaleTransformView {
 //        contentView.alpha = alpha
 //    }
 //}
+extension UIResponder {
+    func next<T:UIResponder>(ofType: T.Type) -> T? {
+        let r = self.next
+        if let r = r as? T ?? r?.next(ofType: T.self) {
+            return r
+        } else {
+            return nil
+        }
+    }
+}
