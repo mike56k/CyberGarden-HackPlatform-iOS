@@ -18,7 +18,6 @@ enum BrowseSectionType {
         }}
 }
 class HomeViewController: UIViewController {
-    let lightGreen = UIColor(rgb: 0x43dfa8)
     private var myHacks: [Hack] = []
     private var otherHacks: [Hack] = []
     private var sections = [BrowseSectionType]()

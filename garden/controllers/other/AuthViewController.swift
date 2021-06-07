@@ -8,16 +8,12 @@
 import UIKit
 
 class AuthViewController: UIViewController {
-    let lightGreen = UIColor(rgb: 0x43dfa8)
-    let white = UIColor.white
+
 
     private lazy var registerBtn: UIButton = {
         var btn = UIButton()
-        btn.setTitle("Готово", for: .normal)
-        btn.backgroundColor = lightGreen
-        btn.setTitleColor(.black, for: .normal)
+        btn.styleGreenButton("Готово")
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.layer.cornerRadius = 30
         btn.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
 
 
@@ -145,7 +141,7 @@ class AuthViewController: UIViewController {
     public var completionHandler: ((Bool)->Void)?
 
     @objc func didTapSignUp() {
-        print("ssiiisisiisisi")
+
         let error = validateFields()
         if error != nil {
             let alert = UIAlertController(title: "Ошибка",

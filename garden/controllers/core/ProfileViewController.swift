@@ -8,8 +8,7 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    let lightGreen = UIColor(rgb: 0x43dfa8)
-    let black = UIColor.black
+
     public var completionHandler: ((Bool)->Void)?
 
     private lazy var errorLabel: UILabel = {
@@ -35,10 +34,7 @@ class ProfileViewController: UIViewController {
     }()
     private lazy var loginBtn: UIButton = {
         var btn = UIButton()
-        btn.backgroundColor = .black
-        btn.setTitle("Вход", for: .normal)
-        btn.setTitleColor(.white, for: .normal)
-        btn.layer.cornerRadius = 30
+        btn.styleBlackButton("Вход")
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
 
@@ -46,11 +42,7 @@ class ProfileViewController: UIViewController {
     }()
     private lazy var registerBtn: UIButton = {
         var btn = UIButton()
-        btn.setTitle("Регистрация", for: .normal)
-        btn.backgroundColor = lightGreen
-        btn.layer.cornerRadius = 30
-
-        btn.setTitleColor(.black, for: .normal)
+        btn.styleGreenButton("Регистрация")
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
 

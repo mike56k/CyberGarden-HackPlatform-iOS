@@ -32,7 +32,6 @@
 		740D723626626427003CE90D /* LatestHackathonsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D723426626427003CE90D /* LatestHackathonsCollectionViewCell.swift */; };
 		740D723B26626439003CE90D /* UIView+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D723826626439003CE90D /* UIView+Extention.swift */; };
 		740D723C26626439003CE90D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D723926626439003CE90D /* UIColor+Extension.swift */; };
-		740D723D26626439003CE90D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D723A26626439003CE90D /* Constants.swift */; };
 		740D725C26626A5B003CE90D /* OtherHackathonsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D725B26626A5B003CE90D /* OtherHackathonsCollectionViewCell.swift */; };
 		740D725F26627838003CE90D /* AuthorizedProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D725E26627838003CE90D /* AuthorizedProfileViewController.swift */; };
 		740D72632662C07A003CE90D /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D72622662C07A003CE90D /* SpinnerViewController.swift */; };
@@ -71,7 +70,6 @@
 		740D723426626427003CE90D /* LatestHackathonsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestHackathonsCollectionViewCell.swift; sourceTree = "<group>"; };
 		740D723826626439003CE90D /* UIView+Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extention.swift"; sourceTree = "<group>"; };
 		740D723926626439003CE90D /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		740D723A26626439003CE90D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		740D725B26626A5B003CE90D /* OtherHackathonsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherHackathonsCollectionViewCell.swift; sourceTree = "<group>"; };
 		740D725E26627838003CE90D /* AuthorizedProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedProfileViewController.swift; sourceTree = "<group>"; };
 		740D72622662C07A003CE90D /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 		740D71FA26626303003CE90D /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				740D723A26626439003CE90D /* Constants.swift */,
 				740D723926626439003CE90D /* UIColor+Extension.swift */,
 				740D723826626439003CE90D /* UIView+Extention.swift */,
 				740D71DD266261D4003CE90D /* AppDelegate.swift */,
@@ -364,7 +361,6 @@
 				740D7229266263E1003CE90D /* UserProfile.swift in Sources */,
 				740D723B26626439003CE90D /* UIView+Extention.swift in Sources */,
 				740D721C266263A4003CE90D /* AuthViewController.swift in Sources */,
-				740D723D26626439003CE90D /* Constants.swift in Sources */,
 				740D72112662638F003CE90D /* SearchViewController.swift in Sources */,
 				740D7228266263E1003CE90D /* AuthResponce.swift in Sources */,
 				740D721F266263A4003CE90D /* WelcomeViewController.swift in Sources */,

@@ -98,7 +98,6 @@ class HackathonInfoViewController: UIViewController, UITableViewDataSource, UITa
         let btn = UIButton(frame: CGRect(x: 0 , y: 0, width: self.view.frame.width, height: 35))
         btn.backgroundColor = UIColor(rgb: 0x43dfa8)
         btn.translatesAutoresizingMaskIntoConstraints = false
-        //btn.titleLabel?.font = .systemFont(ofSize: 22, weight: .medium)
         btn.setTitle("Пойду", for: .normal)
         btn.setTitleColor(.black, for: .normal)
         btn.addTarget(self, action: #selector(didTapWantToParticipate), for: .touchUpInside)

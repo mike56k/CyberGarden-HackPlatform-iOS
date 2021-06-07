@@ -38,8 +38,8 @@ class TabBarViewController: UITabBarController {
         nc2.tabBarItem = UITabBarItem(title: "Команды", image: UIImage(systemName: "person.3.fill"), tag: 1)
         nc1.tabBarItem = UITabBarItem(title: "Афиша", image: UIImage(systemName: "star.fill"), tag: 1)
         nc3.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person.fill"), tag: 1)
-        self.tabBar.tintColor = .black
         
+        self.tabBar.tintColor = .black
         self.setViewControllers([nc1,nc2,nc3], animated: false)
         
     }
